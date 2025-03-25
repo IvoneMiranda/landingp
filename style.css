@@ -1,0 +1,426 @@
+/* -------------------------------------------------- */
+/* RESET BÁSICO                                        */
+/* -------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* -------------------------------------------------- */
+  /* ESTILOS GENERALES                                   */
+  /* -------------------------------------------------- */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* -------------------------------------------------- */
+  /* HEADER                                              */
+  /* -------------------------------------------------- */
+  header {
+    position: fixed;   /* Fijo en la parte superior */
+    top: 0; left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #f4aa0a 0%, #f7cf70 100%);
+    z-index: 999;
+    transition: padding 0.3s ease;
+  }
+  
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;  /* Mantiene logos y menú en la misma línea */
+    align-items: center; /* Alinea verticalmente */
+    justify-content: space-between; /* Espacia logos y menú */
+    padding: 1rem 2rem;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: -27px;
+  }
+  
+  .logo-link {
+    display: flex; /* Evita que los enlaces afecten la alineación */
+  }
+  
+  .logo img {
+    height: 60px; /* Tamaño base de los logos */
+    transition: height 0.3s ease;
+  }
+  
+  .logo-onu {
+    height: 100px; /* Ajusta tamaño si es necesario */
+  }
+  
+  .logo-pacto {
+    height: 50px; /* Ajusta tamaño si es necesario */
+  }
+  /* Menú de navegación */
+  .nav-menu {
+    display: flex;
+    justify-content: flex-end; /* Menú alineado a la derecha */
+    gap: 2rem; /* Espacio entre los elementos del menú */
+    margin-right: 20px; /* Espacio a la derecha del menú */
+    margin-top: -40px; /* Mueve el menú hacia arriba (ajusta el valor según lo necesites) */
+  }
+  .nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0; /* Elimina margen por defecto */
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-menu a:hover {
+    color: #333;
+  }
+  
+  /* Clase que se aplica al hacer scroll */
+  header.scrolled {
+    padding: 0.5rem 2rem;
+  }
+  
+  header.scrolled .logo img {
+    height: 50px;  /* Se hace más pequeño al hacer scroll */
+  }
+  
+  /* -------------------------------------------------- */
+  /* SECCIONES PRINCIPALES PARA DAR ESPACIO AL HEADER   */
+  /* -------------------------------------------------- */
+  .hero,
+  .description,
+  .expectativas,
+  .registro-section,
+  .agradecimiento-section,
+  footer {
+    margin-top: 80px; /* Para no quedar debajo del header fijo */
+  }
+  
+  /* -------------------------------------------------- */
+  /* SECCIÓN HERO (HOME)                                 */
+  /* -------------------------------------------------- */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ajusta la altura según lo necesario */
+    background-image: url('header.o.png'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Asegura que el texto sea visible */
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero h1 {
+    font-size: 4rem;      /* Tamaño grande */
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    font-family: 'Flama Basic', sans-serif; /* Comentario cerrado correctamente */
+  }
+  
+  .hero-subtitle {
+    font-size: 3rem;      /* Subtítulo grande también */
+    font-family: 'Flama Basic', sans-serif; /* Descomentado y corregido */
+  }
+  
+@media (max-width: 768px) {
+
+  /* Ajustes para header */
+  .header-container {
+     padding: 1rem; /* Reduce el padding en móviles */
+  }
+
+  .logo img {
+     height: 50px; /* Ajusta el logo para que sea más pequeño en móviles */
+  }
+
+  .nav-menu {
+    display: flex; 
+    justify-content: center; /* Centra los elementos */
+    gap: 1rem; /* Reduce el espacio entre los elementos */
+    font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+    margin-top: 10px;
+  }
+
+  .nav-menu ul {
+    flex-direction: row; /* Mantiene el menú en línea */
+    gap: 1rem; /* Ajusta el espacio entre elementos */
+    padding: 0;
+  }
+
+  .nav-menu a {
+    font-size: 0.85rem; /* Reduce el tamaño del texto */
+    padding: 5px 8px; /* Ajusta el espaciado para que no se vea tan grande */
+  }
+  .hero {
+    background-size: 100% auto; /* Ancho completo y altura automática */
+      background-position: center top; /* Mantiene la alineación */
+      background-repeat: no-repeat;
+      min-height: 60vh; /* Ajusta la altura */
+      margin-bottom: 0;  /* Elimina el margen inferior */
+      padding-bottom: 0; /* Elimina el padding inferior */
+      overflow: hidden;
+   }
+  .hero h1 {
+     font-size: 3rem;  /* Reduce el tamaño de los títulos en móviles */
+  }
+
+  .hero-subtitle {
+     font-size: 2.5rem; /* Ajuste en subtítulos */
+  }
+
+  /* Ajuste en la distancia entre secciones */
+  .hero,
+  .description,
+  .expectativas,
+  .registro-section,
+  .agradecimiento-section,
+  footer {
+     margin-top: 120px; /* Más espacio en la parte superior para evitar que el header se solape */
+  }
+}
+  
+  /* -------------------------------------------------- */
+  /* BOTONES: EFECTOS EXTRA                             */
+  /* -------------------------------------------------- */
+  .agenda-btn,
+  .registro-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #f4aa0a;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  /* Efecto interactivo: aumenta tamaño, sombra y cambia color */
+  .agenda-btn:hover,
+  .registro-btn:hover {
+    background-color: #dc9000;
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  
+  /* -------------------------------------------------- */
+  /* SECCIÓN DESCRIPCIÓN                                 */
+  /* -------------------------------------------------- */
+  .description {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .description p {
+    color: #555;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+  @media (max-width: 768px) {
+    .description {
+      margin-top: -100px; /* Reduce el margen superior */
+      padding-top: 0;   /* Elimina el padding superior */
+      padding: 1rem; /* Puedes ajustar el padding según lo necesites */
+      max-width: 90%; /* Asegura que no se expanda demasiado */
+    }
+  
+    .description p {
+      font-size: 0.9rem;  /* Ajuste en el tamaño de la fuente si es necesario */
+    }
+  }
+  /* -------------------------------------------------- */
+  /* SECCIÓN EXPECTATIVAS (TARJETAS)                     */
+  /* -------------------------------------------------- */
+  .expectativas {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .expectativas h2 {
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .card {
+    background-color: #fae75c;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  }
+  
+  .card h3 {
+    margin-bottom: 0.5rem;
+    color: #f4aa0a;
+  }
+  
+  .card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  
+  /* -------------------------------------------------- */
+  /* SECCIÓN REGISTRO                                    */
+  /* -------------------------------------------------- */
+  .registro-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  /* -------------------------------------------------- */
+  /* SECCIÓN AGRADECIMIENTO                              */
+  /* -------------------------------------------------- */
+  .agradecimiento-section {
+    text-align: center;
+    padding: 20px 10px;
+    background: linear-gradient(135deg, #f5f5f5, #eaeaea);
+  }
+  
+  .agradecimiento-section h2 {
+    font-size: 1.2rem;
+    color: #333; /* Cambiamos a #333 en vez de var(--primary-blue) */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  
+  /* Contenedor de fotos */
+  .photo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+    padding: 5px 0;
+    opacity: 1;                /* Oculto al inicio, para animación scroll */
+    transform: translateY(20px);
+  }
+  
+  /* Fotos */
+  .photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    width: 120px;
+    height: 120px;
+  }
+  
+  #foto1 {
+    margin-top: 9%;
+    width: 80%;
+    height: 85%;
+  }
+  
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .photo:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .photo img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* La "X" entre las fotos */
+  .cross {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f4aa0a;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    pointer-events: none;
+    z-index: 10;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0.8;
+  }
+  
+  .photo-container:hover .cross {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  
+  /* -------------------------------------------------- */
+  /* ANIMACIÓN DE APARICIÓN AL HACER SCROLL              */
+  /* -------------------------------------------------- */
+  /* Elementos que se animarán usan .fade-in + .show */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease; /* Duración y tipo de transición */
+  }
+  
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* -------------------------------------------------- */
+  /* FOOTER                                              */
+  /* -------------------------------------------------- */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  footer p {
+    margin: 0.5rem 0;
+  }
+  
+  .social-links a {
+    margin: 0 0.5rem;
+    color: #f4aa0a;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    text-decoration: underline;
+    color: #fff;
+  }
