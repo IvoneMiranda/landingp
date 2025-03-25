@@ -114,14 +114,15 @@
   .hero {
     position: relative;
     width: 100%;
-    height: 100vh; /* Ajusta la altura según lo necesario */
+    height: 70vh; /* Ajusta la altura según sea necesario */
     background-image: url('header.o.png'); 
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white; /* Asegura que el texto sea visible */
+    color: white;
     text-align: center;
     overflow: hidden;
   }
@@ -137,7 +138,11 @@
     font-family: 'Flama Basic', sans-serif; /* Descomentado y corregido */
   }
   
-@media (max-width: 768px) {
+@media (max-width: 768px) 
+{
+  .hero {
+    margin-top: 0;
+  }
 
   /* Ajustes para header */
   .header-container {
@@ -235,7 +240,7 @@
   }
   @media (max-width: 768px) {
     .description {
-      margin-top: -100px; /* Reduce el margen superior */
+      margin-top: 0; /* Reduce el margen superior */
       padding-top: 0;   /* Elimina el padding superior */
       padding: 1rem; /* Puedes ajustar el padding según lo necesites */
       max-width: 90%; /* Asegura que no se expanda demasiado */
