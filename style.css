@@ -55,7 +55,7 @@
   }
   
   .logo-onu {
-    height: 100px; /* Ajusta tamaño si es necesario */
+    height: 80px !important; /* Ajusta tamaño si es necesario */
   }
   
   .logo-pacto {
@@ -115,7 +115,7 @@
     position: relative;
     width: 100%;
     height: 70vh; /* Ajusta la altura según sea necesario */
-    background-image: url('header.o.png'); 
+    background-image: url('header.of.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -240,10 +240,11 @@
   }
   @media (max-width: 768px) {
     .description {
-      margin-top: 0; /* Reduce el margen superior */
+      margin-top: -50px; /* Reduce el margen superior */
       padding-top: 0;   /* Elimina el padding superior */
       padding: 1rem; /* Puedes ajustar el padding según lo necesites */
       max-width: 90%; /* Asegura que no se expanda demasiado */
+      top: -40px;
     }
   
     .description p {
