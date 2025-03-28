@@ -108,45 +108,102 @@
     margin-top: 80px; /* Para no quedar debajo del header fijo */
   }
   
-  /* -------------------------------------------------- */
-  /* SECCIÓN HERO (HOME)                                 */
-  /* -------------------------------------------------- */
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 70vh; /* Ajusta la altura según sea necesario */
-    background-image: url('header.of.png'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    overflow: hidden;
-  }
+ /* Estilos generales del hero */
+.hero {
+  position: relative;
+  height: 100vh; /* Ocupa toda la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #fff; /* Fondo blanco */
+  padding: 20px;
+}
+
+/* Título principal */
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #f9a825; /* Amarillo anaranjado */
+  margin-bottom: 10px;
+}
+
+/* Subtítulo en cursiva */
+.hero h2 {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #f9a825;
+  margin-bottom: 30px;
+}
+
+/* Contenedor de la información de hora y fecha */
+.hero-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* Espaciado entre elementos */
+  flex-wrap: wrap; /* Permite que los elementos se acomoden si la pantalla es pequeña */
+}
+
+/* Estilos de la hora y ubicación */
+.hero-time {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f9a825;
+}
+
+.hero-location {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #f9a825;
+}
+
+/* Estilos del círculo de ODS */
+.hero-logo {
+  width: 120px; /* Ajusta el tamaño del logo */
+  height: auto;
+}
+
+/* Estilos de la fecha */
+.hero-date {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f9a825;
+}
+
+.hero-date span {
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: normal;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
   .hero h1 {
-    font-size: 4rem;      /* Tamaño grande */
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-    font-family: 'Flama Basic', sans-serif; /* Comentario cerrado correctamente */
-  }
-  
-  .hero-subtitle {
-    font-size: 3rem;      /* Subtítulo grande también */
-    font-family: 'Flama Basic', sans-serif; /* Descomentado y corregido */
-  }
-  
-@media (max-width: 768px) 
-{
-  .hero {
-    margin-top: 0;
+    font-size: 2rem;
   }
 
+  .hero h2 {
+    font-size: 1.2rem;
+  }
+
+  .hero-info {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero-time, .hero-date {
+    font-size: 1.5rem;
+  }
+
+  .hero-date span {
+    font-size: 1rem;
+  }
+}
   /* Ajustes para header */
   .header-container {
-     padding: 1rem; /* Reduce el padding en móviles */
+    padding: 0.2rem 0.5rem; /* Reduce el padding en móviles */
   }
 
   .logo img {
@@ -175,15 +232,15 @@
     background-size: 100% auto; /* Ancho completo y altura automática */
       background-position: center top; /* Mantiene la alineación */
       background-repeat: no-repeat;
-      min-height: 60vh; /* Ajusta la altura */
-      margin-bottom: 0;  /* Elimina el margen inferior */
-      padding-bottom: 0; /* Elimina el padding inferior */
+      min-height: -0vh; /* Ajusta la altura */
       overflow: hidden;
    }
-  .hero h1 {
-     font-size: 3rem;  /* Reduce el tamaño de los títulos en móviles */
-  }
-
+   .hero h1 {
+    font-size: 2rem;  /* Reduce el tamaño de los títulos en móviles */
+ }
+ .hero p {
+  font-size: 1rem;
+}
   .hero-subtitle {
      font-size: 2.5rem; /* Ajuste en subtítulos */
   }
@@ -197,7 +254,7 @@
   footer {
      margin-top: 120px; /* Más espacio en la parte superior para evitar que el header se solape */
   }
-}
+
   
   /* -------------------------------------------------- */
   /* BOTONES: EFECTOS EXTRA                             */
@@ -227,10 +284,15 @@
   /* SECCIÓN DESCRIPCIÓN                                 */
   /* -------------------------------------------------- */
   .description {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 1rem;
-    text-align: center;
+  max-width: 1000px;
+  width: 90%; /* Se adapta mejor al ancho disponible */
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease-in-out; /* Suaviza cambios */
+  margin-top: 30px; /* Ajusta según sea necesario */
+  transition: margin-top 0.3s ease-in-out;
+  
   }
   
   .description p {
@@ -240,15 +302,29 @@
   }
   @media (max-width: 768px) {
     .description {
-      margin-top: -50px; /* Reduce el margen superior */
-      padding-top: 0;   /* Elimina el padding superior */
-      padding: 1rem; /* Puedes ajustar el padding según lo necesites */
-      max-width: 90%; /* Asegura que no se expanda demasiado */
-      top: -40px;
+      max-width: 90%;
+    width: 90%;
+    margin-top: 20px; 
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     }
   
     .description p {
-      font-size: 0.9rem;  /* Ajuste en el tamaño de la fuente si es necesario */
+      font-size: 0.9rem; /* Ajuste en el tamaño de la fuente si es necesario */
+    }
+  }
+  @media (max-width: 480px) {
+    .description {
+      max-width: 95%;
+      width: 95%;
+      margin-top: -4rem; /* Reduce aún más el espacio extra */
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  
+    .description p {
+      font-size: 0.85rem;
+      line-height: 1.4;
     }
   }
   /* Vista de escritorio - Para pantallas grandes */
@@ -274,6 +350,8 @@
     font-size: 1.25rem;
   }
 }
+
+
   /* -------------------------------------------------- */
   /* SECCIÓN EXPECTATIVAS (TARJETAS)                     */
   /* -------------------------------------------------- */
@@ -328,7 +406,78 @@
     padding: 1rem;
     text-align: center;
   }
-  
+  .patrocinadores {
+    text-align: center;
+    padding: 50px 0;
+    background-color: white;
+}
+.patrocinadores h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.logos img {
+    max-height: 80px; /* Ajusta según necesidad */
+    max-width: 150px; /* Para que no se deformen */
+    object-fit: contain;
+}
+.sponsors-section {
+  width: 100%;
+  padding: 20px 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.sponsors-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sponsors-group {
+  margin-bottom: 20px;
+}
+
+.sponsors-group h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d67b2b; /* Color similar al de la imagen */
+  margin-bottom: 10px;
+}
+
+.sponsors-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.sponsor-logo {
+  max-height: 80px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .sponsors-list {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: 10px;
+      scroll-snap-type: x mandatory;
+  }
+
+  .sponsor-logo {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+  }
+}
   /* -------------------------------------------------- */
   /* SECCIÓN AGRADECIMIENTO                              */
   /* -------------------------------------------------- */
