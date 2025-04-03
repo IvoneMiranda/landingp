@@ -2,410 +2,273 @@
 /* RESET BÁSICO                                        */
 /* -------------------------------------------------- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* -------------------------------------------------- */
-  /* ESTILOS GENERALES                                   */
-  /* -------------------------------------------------- */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
-  }
-  
-  /* -------------------------------------------------- */
-  /* HEADER                                              */
-  /* -------------------------------------------------- */
-  header {
-    position: fixed;   /* Fijo en la parte superior */
-    top: 0; left: 0;
-    width: 100%;
-    background: linear-gradient(90deg, #f4aa0a 0%, #f7cf70 100%);
-    z-index: 999;
-    transition: padding 0.3s ease;
-  }
-  
-  .header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;  /* Mantiene logos y menú en la misma línea */
-    align-items: center; /* Alinea verticalmente */
-    justify-content: space-between; /* Espacia logos y menú */
-    padding: 1rem 2rem;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-left: -27px;
-  }
-  
-  .logo-link {
-    display: flex; /* Evita que los enlaces afecten la alineación */
-  }
-  
-  .logo img {
-    height: 60px; /* Tamaño base de los logos */
-    transition: height 0.3s ease;
-  }
-  
-  .logo-onu {
-    height: 80px !important; /* Ajusta tamaño si es necesario */
-  }
-  
-  .logo-pacto {
-    height: 50px; /* Ajusta tamaño si es necesario */
-  }
-  /* Menú de navegación */
-  .nav-menu {
-    display: flex;
-    justify-content: flex-end; /* Menú alineado a la derecha */
-    gap: 2rem; /* Espacio entre los elementos del menú */
-    margin-right: 20px; /* Espacio a la derecha del menú */
-    margin-top: -40px; /* Mueve el menú hacia arriba (ajusta el valor según lo necesites) */
-  }
-  .nav-menu ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0; /* Elimina margen por defecto */
-  }
-  
-  .nav-menu a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-menu a:hover {
-    color: #333;
-  }
-  
-  /* Clase que se aplica al hacer scroll */
-  header.scrolled {
-    padding: 0.5rem 2rem;
-  }
-  
-  header.scrolled .logo img {
-    height: 50px;  /* Se hace más pequeño al hacer scroll */
-  }
-  
-  /* -------------------------------------------------- */
-  /* SECCIONES PRINCIPALES PARA DAR ESPACIO AL HEADER   */
-  /* -------------------------------------------------- */
-  .hero,
-  .description,
-  .expectativas,
-  .registro-section,
-  .agradecimiento-section,
-  footer {
-    margin-top: 80px; /* Para no quedar debajo del header fijo */
-  }
-  
- /* Estilos generales del hero */
-.hero {
-  position: relative;
-  height: 100vh; /* Ocupa toda la pantalla */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------- */
+/* ESTILOS GENERALES                                   */
+/* -------------------------------------------------- */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------- */
+/* HEADER                                              */
+/* -------------------------------------------------- */
+/* Header fijo, siempre igual en todas las pantallas */
+header {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #f4aa0a 0%, #f7cf70 100%);
+  z-index: 999;
+  transition: height 0.3s ease, padding 0.3s ease;
+  height: 100px;
+}
+
+.header-container {
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo-onu {
+  height: 80px;
+  transition: height 0.3s ease, transform 0.3s ease;
+}
+.logo-pacto {
+  height: 60px;
+  transition: height 0.3s ease, transform 0.3s ease;
+}
+
+/* Al hacer scroll, reducimos un poco la altura (si deseas) */
+header.scrolled {
+  height: 60px;
+  padding: 0 2rem;
+}
+header.scrolled .logo-onu {
+  height: 50px; 
+}
+header.scrolled .logo-pacto {
+  height: 40px; 
+}
+
+/* -------------------------------------------------- */
+/* MENÚ DE NAVEGACIÓN (SIEMPRE A LA DERECHA)           */
+/* -------------------------------------------------- */
+.nav-menu {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;   
+  gap: 1.5rem;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-menu a {
+  display: inline-block;
+  padding: 0.6rem 1rem; 
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  background-color: #fff;
+  color: #f4aa0a;
+}
+
+/* -------------------------------------------------- */
+/* AJUSTE MÁRGENES PARA NO TAPAR CONTENIDO CON EL HEADER */
+/* -------------------------------------------------- */
+.hero,
+.description,
+.expectativas,
+.registro-section,
+footer {
+  margin-top: 100px; /* igual a la altura del header */
+}
+
+/* -------------------------------------------------- */
+/* SECCIÓN HERO                                        */
+/* -------------------------------------------------- */
+.hero {
   text-align: center;
-  background-color: #fff; /* Fondo blanco */
-  padding: 20px;
+  background-color: #fff;
+  padding: 3rem 0;
 }
 
-/* Título principal */
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
-  color: #f9a825; /* Amarillo anaranjado */
-  margin-bottom: 10px;
+  color: #f9a825;
+  margin-bottom: 0.5rem;
 }
 
-/* Subtítulo en cursiva */
 .hero h2 {
   font-size: 1.5rem;
   font-style: italic;
   color: #f9a825;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
-/* Contenedor de la información de hora y fecha */
 .hero-info {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px; /* Espaciado entre elementos */
-  flex-wrap: wrap; /* Permite que los elementos se acomoden si la pantalla es pequeña */
+  gap: 3rem;
+  flex-wrap: wrap; /* Para que no sobrepase la pantalla en móvil */
 }
 
-/* Estilos de la hora y ubicación */
 .hero-time {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: #f9a825;
 }
-
 .hero-location {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-style: italic;
   color: #f9a825;
 }
 
-/* Estilos del círculo de ODS */
 .hero-logo {
-  width: 120px; /* Ajusta el tamaño del logo */
+  width: 100px;
   height: auto;
 }
 
-/* Estilos de la fecha */
 .hero-date {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #f9a825;
 }
-
 .hero-date span {
-  font-size: 1.2rem;
+  display: block;
+  font-size: 1rem;
   font-style: italic;
   font-weight: normal;
 }
 
-/* Estilos responsivos */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero h2 {
-    font-size: 1.2rem;
-  }
-
-  .hero-info {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .hero-time, .hero-date {
-    font-size: 1.5rem;
-  }
-
-  .hero-date span {
-    font-size: 1rem;
-  }
+/* -------------------------------------------------- */
+/* BOTONES                                             */
+/* -------------------------------------------------- */
+.agenda-btn,
+.registro-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #f4aa0a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
-  /* Ajustes para header */
-  .header-container {
-    padding: 0.2rem 0.5rem; /* Reduce el padding en móviles */
-  }
 
-  .logo img {
-     height: 50px; /* Ajusta el logo para que sea más pequeño en móviles */
-  }
-
-  .nav-menu {
-    display: flex; 
-    justify-content: center; /* Centra los elementos */
-    gap: 1rem; /* Reduce el espacio entre los elementos */
-    font-size: 0.9rem; /* Reduce el tamaño de la fuente */
-    margin-top: 10px;
-  }
-
-  .nav-menu ul {
-    flex-direction: row; /* Mantiene el menú en línea */
-    gap: 1rem; /* Ajusta el espacio entre elementos */
-    padding: 0;
-  }
-
-  .nav-menu a {
-    font-size: 0.85rem; /* Reduce el tamaño del texto */
-    padding: 5px 8px; /* Ajusta el espaciado para que no se vea tan grande */
-  }
-  .hero {
-    background-size: 100% auto; /* Ancho completo y altura automática */
-      background-position: center top; /* Mantiene la alineación */
-      background-repeat: no-repeat;
-      min-height: -0vh; /* Ajusta la altura */
-      overflow: hidden;
-   }
-   .hero h1 {
-    font-size: 2rem;  /* Reduce el tamaño de los títulos en móviles */
- }
- .hero p {
-  font-size: 1rem;
+.agenda-btn:hover,
+.registro-btn:hover {
+  background-color: #dc9000;
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-  .hero-subtitle {
-     font-size: 2.5rem; /* Ajuste en subtítulos */
-  }
 
-  /* Ajuste en la distancia entre secciones */
-  .hero,
-  .description,
-  .expectativas,
-  .registro-section,
-  .agradecimiento-section,
-  footer {
-     margin-top: 120px; /* Más espacio en la parte superior para evitar que el header se solape */
-  }
-
-  
-  /* -------------------------------------------------- */
-  /* BOTONES: EFECTOS EXTRA                             */
-  /* -------------------------------------------------- */
-  .agenda-btn,
-  .registro-btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
-    background-color: #f4aa0a;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-  
-  /* Efecto interactivo: aumenta tamaño, sombra y cambia color */
-  .agenda-btn:hover,
-  .registro-btn:hover {
-    background-color: #dc9000;
-    transform: scale(1.03);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-  
-  /* -------------------------------------------------- */
-  /* SECCIÓN DESCRIPCIÓN                                 */
-  /* -------------------------------------------------- */
-  .description {
+/* -------------------------------------------------- */
+/* SECCIÓN DESCRIPCIÓN                                 */
+/* -------------------------------------------------- */
+.description {
   max-width: 1000px;
-  width: 90%; /* Se adapta mejor al ancho disponible */
-  margin: 2rem auto;
+  margin: 0 auto;
   padding: 1rem;
   text-align: center;
-  transition: all 0.3s ease-in-out; /* Suaviza cambios */
-  margin-top: 30px; /* Ajusta según sea necesario */
-  transition: margin-top 0.3s ease-in-out;
-  
-  }
-  
-  .description p {
-    color: #555;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-  }
-  @media (max-width: 768px) {
-    .description {
-      max-width: 90%;
-    width: 90%;
-    margin-top: 20px; 
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    }
-  
-    .description p {
-      font-size: 0.9rem; /* Ajuste en el tamaño de la fuente si es necesario */
-    }
-  }
-  @media (max-width: 480px) {
-    .description {
-      max-width: 95%;
-      width: 95%;
-      margin-top: -4rem; /* Reduce aún más el espacio extra */
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-  
-    .description p {
-      font-size: 0.85rem;
-      line-height: 1.4;
-    }
-  }
-  /* Vista de escritorio - Para pantallas grandes */
-@media (min-width: 769px) {
-  /* Estilos para vista de escritorio */
-  .hero {
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Ocupa toda la pantalla */
-    min-height: 100vh;
-  }
-
-  .hero h1 {
-    font-size: 4rem;
-  }
-
-  .hero-subtitle {
-    font-size: 3rem;
-  }
-  
-  /* Ajustes para la descripción */
-  .description p {
-    font-size: 1.25rem;
-  }
 }
 
+.description p {
+  color: #555;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-align: justify;
+}
 
-  /* -------------------------------------------------- */
-  /* SECCIÓN EXPECTATIVAS (TARJETAS)                     */
-  /* -------------------------------------------------- */
-  .expectativas {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  .expectativas h2 {
-    margin-bottom: 2rem;
-    color: #333;
-  }
-  
-  .cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .card {
-    background-color: #fae75c;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 1.5rem;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  }
-  
-  .card h3 {
-    margin-bottom: 0.5rem;
-    color: #f4aa0a;
-  }
-  
-  .card p {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.4;
-  }
-  
-  /* -------------------------------------------------- */
-  /* SECCIÓN REGISTRO                                    */
-  /* -------------------------------------------------- */
-  .registro-section {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    text-align: center;
-  }
+/* -------------------------------------------------- */
+/* SECCIÓN EXPECTATIVAS (TARJETAS)                     */
+/* -------------------------------------------------- */
+.expectativas {
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.expectativas h2 {
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #fae75c;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: #f4aa0a;
+}
+
+.card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* -------------------------------------------------- */
+/* SECCIÓN REGISTRO                                    */
+/* -------------------------------------------------- */
+.registro-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
   .patrocinadores {
     text-align: center;
     padding: 50px 0;
@@ -522,3 +385,63 @@
     text-decoration: underline;
     color: #fff;
   }
+  
+/* MEDIA QUERIES PARA AJUSTAR EN MÓVILES (OPCIONAL)    */
+/* -------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Ajusta tamaño de los logos del header */
+  .logo-onu {
+    height: 60px;
+  }
+  .logo-pacto {
+    height: 45px;
+  }
+  header.scrolled .logo-onu {
+    height: 40px; 
+  }
+  header.scrolled .logo-pacto {
+    height: 30px; 
+  }
+
+  /* Ajusta tamaño de la sección hero */
+  .hero-info {
+    gap: 2rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Oculta la barra de navegación en dispositivos móviles */
+  .nav-menu {
+    display: none;
+  }
+
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .hero h2 {
+    font-size: 1rem;
+  }
+  .hero-time {
+    font-size: 1.3rem;
+  }
+  .hero-location {
+    font-size: 0.9rem;
+  }
+  .hero-date {
+    font-size: 1.3rem;
+  }
+  .hero-date span {
+    font-size: 0.9rem;
+  }
+  /* Centra los logos de Pacto Global y Onubense */
+  .header-container {
+    justify-content: center;
+  }
+}
+}
